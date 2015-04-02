@@ -1,0 +1,13 @@
+sudo: false
+language: node_js
+node_js:
+- '0.10'
+cache:
+  directories:
+  - node_modules
+before_install:
+- mkdir .travis
+install:
+- npm install grunt-cli bower
+- npm install
+before_script: "./build.sh"
