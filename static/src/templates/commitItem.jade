@@ -1,0 +1,16 @@
+.row
+  .small-3.columns.author
+    a.th.radius(href="#{author.html_url}")
+      img(src="#{author.avatar_url}", width=100, height=100)
+    a(href="#{author.html_url}")
+      = author.login
+
+  .small-9.columns
+    span.label.radius.warning
+      a(href="#{html_url}").sha
+        = sha.substring(0, 10)
+    span.time Created 
+      = moment(commit.author.date).fromNow()
+    p 
+      = commit.message
+    a(href="#{html_url}") More...

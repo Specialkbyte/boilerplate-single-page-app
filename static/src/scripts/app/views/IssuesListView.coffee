@@ -16,9 +16,11 @@ define [
     render: =>
       context = @getRenderContext()
       data =
-        issues: _.map @collection.models, (val) -> val.getRenderContext()
+        issues: _.map @collection.models, (val) -> val.toJSON()
 
       context = _.extend context, data
+
+      console.log context
 
       @$el.html @template context
 

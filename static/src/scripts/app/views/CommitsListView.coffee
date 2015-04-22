@@ -16,13 +16,12 @@ define [
       @filters = options.filters
 
     render: =>
-      context = @getRenderContext()
-      @$el.html @template context
+      @$el.html @template @getRenderContext()
 
       _.each @collection.models, (commit) =>
         commitView = new CommitItemView
           model: commit
-        @rememberView teamView
+        @rememberView commitView
         $('#commits-list').append commitView.render().$el
 
       @

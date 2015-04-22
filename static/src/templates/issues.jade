@@ -1,4 +1,21 @@
 .row
   .small-12.columns
     h3 Issues
-    ul#issues-list
+    if error
+      | Error loading repo issues
+    else if loading
+      include loading.jade
+    else
+      ul#issues-list
+        each issue in issues
+          li
+            if issue.state == "open"
+              .label.radius.success Open
+            h4
+              a(href="#{issue.html_url}")
+                = issue.title
+            p 
+              = issue.body
+            a(href="#{issue.html_url}") More
+        else
+          li Congratz there are no issues! This project must be perfect.

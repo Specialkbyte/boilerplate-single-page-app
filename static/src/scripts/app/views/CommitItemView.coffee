@@ -8,7 +8,7 @@ define [
   'mixens/BaseViewMixen'
 ], ($, _, Backbone, foundation, jade, Mixen, BaseView) ->
   class CommitItem extends Mixen(BaseView)
-    template: jade.commit
+    template: jade.commitItem
     tagName: 'li'
 
     initialize: (options) =>
@@ -17,6 +17,7 @@ define [
       super
 
     render: =>
-      @$el.html @template @model.toJSON()
+      context = @model.toJSON()
+      @$el.html @template context
 
       @

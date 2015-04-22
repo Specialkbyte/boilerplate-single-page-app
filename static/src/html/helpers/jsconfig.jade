@@ -6,15 +6,15 @@ script.
 
 +targethtml('dev')
   script.
-    config.api_host = 'http://localhost:8090';
+    config.api_url = 'https://api.github.com/repos/Specialkbyte/boilerplate-single-page-app';
     config.release = 'local';
 
 +targethtml('qa')
   script.
-    config.api_host = 'https://qa.jbapi.net';
+    config.api_url = 'https://api.github.com/repos/Specialkbyte/boilerplate-single-page-app';
     config.release = '{{build}}';
 
 +targethtml('prod')
   script.
-    config.api_host = 'https://jbapi.net';
+    config.api_url = 'https://api.github.com/repos/Specialkbyte/boilerplate-single-page-app';
     config.release = '{{build}}';

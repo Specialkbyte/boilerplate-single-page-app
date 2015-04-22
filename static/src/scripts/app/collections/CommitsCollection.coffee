@@ -5,4 +5,4 @@ define [
 ], (Mixen, BaseCollectionMixen, Commit) ->
   class Commits extends Mixen(BaseCollectionMixen)
     model: Commit
-    url: '/commits'
+    url: config.api_url + '/commits'
