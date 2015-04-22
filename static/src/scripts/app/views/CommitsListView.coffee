@@ -23,6 +23,6 @@ define [
         commitView = new CommitItemView
           model: commit
         @rememberView teamView
-        $('#commits').append commitView.render().$el
+        $('#commits-list').append commitView.render().$el
 
       @

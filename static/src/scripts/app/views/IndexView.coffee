@@ -34,12 +34,8 @@ define [
       @$el.html @template()
 
       # render sub views
-      @renderTeamsMapView()
-      @renderIndexStatsView()
-      @renderEventsStream()
-      @renderDonationsList()
-
-      @slick()
+      @renderCommits()
+      @renderIssues()
 
       @
 

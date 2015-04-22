@@ -5,4 +5,4 @@ define [
 ], (Mixen, BaseCollectionMixen, Issue) ->
   class Issues extends Mixen(BaseCollectionMixen)
     model: Issue
-    urlPath: '/issues'
+    url: '/issues'
