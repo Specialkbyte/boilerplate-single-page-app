@@ -1,12 +1,12 @@
 define [
   'backbone',
   'collections/CommitsCollection'
-  'models/Commit'
+  'models/CommitModel'
   'views/IndexView'
   'views/CommitsListView'
-  'views/CommitView'
+  'views/CommitDetailView'
   'views/ErrorView'
-], (Backbone, Commits, Commit, IndexView, CommitsListView, CommitView, ErrorView) ->
+], (Backbone, Commits, Commit, IndexView, CommitsListView, CommitDetailView, ErrorView) ->
   class Router extends Backbone.Router
     routes:
       '':                   'index'
@@ -15,13 +15,6 @@ define [
       '*notFound':          'notFound'
 
     initialize: ->
-      try
-        require ['//www.google-analytics.com/analytics.js'], (data) ->
-          if window.ga
-            window.ga?('create', app.ga_id)
-      catch
-        # do nothing - user might have blocked tracking scripts
-
       @bodyContainer = $('#body-container')
       @bind 'route', @_trackPageview
 
@@ -40,7 +33,7 @@ define [
       commit = new Commit
         id: id
       commit.fetch()
-      commitView = new CommitView
+      commitView = new CommitDetailView
         model: commit
       @_showView teamProfileView
 
@@ -57,15 +50,3 @@ define [
       @currentView = view
 
       @bodyContainer.html view.render().$el
-
-    _isIphoneRedirect: ->
-      url = Backbone.history.getFragment()
-      (url.indexOf('iphone') != -1)
-
-    _trackPageview: ->
-      try
-        require ['//www.google-analytics.com/analytics.js'], (data) ->
-          url = Backbone.history.getFragment()
-          window.ga?('send', 'pageview', '/#{url}')
-      catch
-        # do nothing - user might have blocked tracking scripts

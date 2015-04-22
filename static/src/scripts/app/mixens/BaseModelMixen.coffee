@@ -1,21 +1,11 @@
 define [
-  'jquery'
-  'underscore'
   'backbone'
   'mixen'
-  'mixens/AuthMixen'
-  'mixens/LoadedMixen'
-], ($, _, backbone, Mixen, AuthMixen, LoadedMixen) ->
-  class BaseModel extends Mixen(LoadedMixen, AuthMixen, Backbone.Model)
-    urlRoot: jailbreak.api_host
+  'mixens/SyncingMixen'
+], (backbone, Mixen, SyncingMixen) ->
+  class BaseModel extends Mixen(SyncingMixen, Backbone.Model)
+    urlRoot: config.api_host
 
-    getRenderContext: ->
-      context = super ? {}
-
-      data =
-        error: @error
-        errorMessage: @errorMessage
-        errorStatus: @errorStatus
-        loaded: @loaded
-
-      _.extend context, data
+    sync: ->
+      # don't remove
+      super

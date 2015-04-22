@@ -1,5 +1,5 @@
 {
-  "name": "JailbreakHQ Static",
+  "name": "Boilerplate Single-Page Static",
   "version": "0.0.1",
   "dependencies": {
     "bower-foundation": "https://github.com/zurb/bower-foundation.git#5.5.0",
@@ -8,7 +8,6 @@
     "jade": "~1.9.1",
     "moment": "~2.9.0",
     "mixen": "https://github.com/HubSpot/mixen.git#0.5.4",
-    "raven-js": "~1.1.16",
     "signet": "https://github.com/HubSpot/signet.git#~0.4.7"
   }
 }

@@ -4,19 +4,11 @@ require [
   'backbone'
   'foundation'
   'foundation.topbar'
-  'raven'
   'AppRouter'
   'signet'
-], ($, _, Backbone, foundation, topbar, Raven, Router) ->
+], ($, _, Backbone, foundation, topbar, Router) ->
   
   $ ->
-    # Config Sentry Raven Client
-    if app.sentry.enabled
-      Raven.config(app.sentry.dsn, {
-        whitelistUrls: ['local.jailbreakhq.org', 'builds.jailbreakhq.org']
-        release: app.release
-      }).install();
-
     # Sentry Foundation javascript events/handlers
     $(document).foundation()
 

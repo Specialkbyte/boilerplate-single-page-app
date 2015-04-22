@@ -1,9 +1,8 @@
 define [
   'jquery'
-  'underscore'
   'backbone'
   'jade.templates'
-], ($, _, Backbone, jade) ->
+], ($, Backbone, jade) ->
   class Error extends Backbone.View
     template: jade.error
 
