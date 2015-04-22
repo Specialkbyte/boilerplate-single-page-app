@@ -16,7 +16,6 @@ define [
 
     initialize: ->
       @bodyContainer = $('#body-container')
-      @bind 'route', @_trackPageview
 
     index: ->
       indexView = new IndexView
@@ -27,7 +26,7 @@ define [
       commits.fetch()
       commitsView = new CommitsListView
         collection: commits
-      @_showView teamsView
+      @_showView commitsView
 
     commit: (id) ->
       commit = new Commit
@@ -35,7 +34,7 @@ define [
       commit.fetch()
       commitView = new CommitDetailView
         model: commit
-      @_showView teamProfileView
+      @_showView commitView
 
     notFound: ->
       errorView = new ErrorView
@@ -44,9 +43,6 @@ define [
       @_showView errorView
 
     _showView: (view) ->
-      if @currentView?.close
-        @currentView.close()
-
+      @currentView.close?()
       @currentView = view
-
       @bodyContainer.html view.render().$el
