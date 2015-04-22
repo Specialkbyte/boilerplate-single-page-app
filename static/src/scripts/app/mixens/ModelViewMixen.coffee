@@ -4,8 +4,7 @@ define [
   class ModelView
 
     initialize: (options) ->
-      @listenTo @model, 'loading loaded error', =>
-        @render()
+      @listenTo @model, 'loading loaded error', @render
 
     getRenderContext: ->
       context = super ? {}
