@@ -20,8 +20,6 @@ define [
 
       context = _.extend context, data
 
-      console.log context
-
       @$el.html @template context
 
       @
